@@ -81,6 +81,22 @@
 			return true;
 		};
 
+		obj.addTMXLevelDirectly = function(tmxMap) {
+			// just load the level with the XML stuff
+			if (levels[tmxMap.levelId] == null) {
+				console.assert(tmxMap, "No map given");
+				console.assert(typeof tmxMap.levelId === "string");
+				levels[tmxMap.levelId] = tmxMap;
+				// level index
+				levelIdx.push(tmxMap.levelId);
+			}
+			else  {
+				return false;
+			}
+			// true if level loaded
+			return true;
+		};
+
 		/**
 		 * load a level into the game manager<br>
 		 * (will also create all level defined entities, etc..)
