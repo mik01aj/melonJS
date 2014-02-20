@@ -37,6 +37,13 @@
 			PUBLIC STUFF
 				
 		 ---------------------------------------------*/
+
+		/**
+		 * Preference: should levels be reset on each load? You might want to disable this if you're writing an RPG
+         * where level state should be retained, or you just want faster level loading and can reset stuff yourself.
+		 */
+        obj.resetsLevelOnLoading = true;
+
 		/**
 		 * reset the level director 
 		 * @ignore
@@ -145,7 +152,7 @@
 				me.utils.resetGUID(levelId);
 				
 				// reset the current (previous) level
-				if (levels[obj.getCurrentLevelId()]) {
+				if (levels[obj.getCurrentLevelId()] && this.resetsLevelOnLoading) {
 					levels[obj.getCurrentLevelId()].reset();
 				}
 				

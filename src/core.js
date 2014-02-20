@@ -1,3 +1,6 @@
+// NOTE: this file comes from the MelonJS fork by mik01aj
+// https://github.com/mik01aj/melonJS
+
 /**
  * @license MelonJS Game Engine
  * @copyright (C) 2011 - 2013 Olivier Biot, Jason Oster
