@@ -237,7 +237,9 @@
 					obj.className = name;
 				}
 
-				entity["active"].push(obj);
+                if (entity.active instanceof Array) {
+				    entity["active"].push(obj);
+                }
 				return obj;
 			}
 
