@@ -93,8 +93,10 @@
 				
 			var end = this.pixelToTileCoords(rect.pos.x + rect.width + this.tilewidth, 
 											 rect.pos.y + rect.height + this.tileheight).ceilSelf();
-			
-			//ensure we are in the valid tile range
+
+            //ensure we are in the valid tile range
+            start.x = start.x < 0 ? 0 : start.x;
+            start.y = start.y < 0 ? 0 : start.y;
 			end.x = end.x > this.cols ? this.cols : end.x;
 			end.y = end.y > this.rows ? this.rows : end.y;
 			
