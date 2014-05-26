@@ -55,9 +55,21 @@
         
 		/** @ignore */
 		init : function(x, y, w, h, gid) {
-			this.parent(new me.Vector2d(x * w, y * h), w, h);
-			
-			// Tile col / row pos
+            // NOTE: we're not calling the parent() constructor. This is needed for performance reasons.
+            // Important stuff from that constructor is inlined (and optimized) here.
+
+            this.pos = new me.Vector2d(x * w, y * h);
+            this.offset = new me.Vector2d();
+            this.colPos = this.pos;
+
+            this.width = w;
+            this.height = h;
+
+            // half width/height
+            this.hWidth = ~~(w / 2);
+            this.hHeight = ~~(h / 2);
+
+            // Tile col / row pos
 			this.col = x;
 			this.row = y;
 			
