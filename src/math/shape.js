@@ -127,7 +127,6 @@
             if (this.offset === null) {
                 this.offset = new me.Vector2d();
             }
-            this.offset.set(0, 0);
 
             // allow to reduce the hitbox size
             // while on keeping the original pos vector
@@ -135,7 +134,6 @@
             if (this.colPos === null) {
                 this.colPos = new me.Vector2d();
             }
-            this.colPos.setV(0, 0);
 
 			this.width = w;
 			this.height = h;
@@ -143,36 +141,6 @@
 			// half width/height
 			this.hWidth = ~~(w / 2);
 			this.hHeight = ~~(h / 2);
-			
-			// redefine some properties to ease our life when getting the rectangle coordinates
-			Object.defineProperty(this, "left", {
-				get : function() {
-					return this.pos.x;
-				},
-				configurable : true
-			});
-			
-			Object.defineProperty(this, "right", {
-				get : function() {
-					return this.pos.x + this.width;
-				},
-				configurable : true
-			});
-
-			Object.defineProperty(this, "top", {
-				get : function() {
-					return this.pos.y;
-				},
-				configurable : true
-			});
-
-			Object.defineProperty(this, "bottom", {
-				get : function() {
-					return this.pos.y + this.height;
-				},
-				configurable : true
-			});
-
 		},
 
 		/**
@@ -509,6 +477,36 @@
 
 		}
 	});
+
+    // redefine some properties to ease our life when getting the rectangle coordinates
+    Object.defineProperty(me.Rect.prototype, "left", {
+        get : function() {
+            return this.pos.x;
+        },
+        configurable : true
+    });
+
+    Object.defineProperty(me.Rect.prototype, "right", {
+        get : function() {
+            return this.pos.x + this.width;
+        },
+        configurable : true
+    });
+
+    Object.defineProperty(me.Rect.prototype, "top", {
+        get : function() {
+            return this.pos.y;
+        },
+        configurable : true
+    });
+
+    Object.defineProperty(me.Rect.prototype, "bottom", {
+        get : function() {
+            return this.pos.y + this.height;
+        },
+        configurable : true
+    });
+
 
     /************************************************************************************/
 	/*                                                                                  */
