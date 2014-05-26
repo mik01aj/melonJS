@@ -94,6 +94,12 @@
 			var end = this.pixelToTileCoords(rect.pos.x + rect.width + this.tilewidth, 
 											 rect.pos.y + rect.height + this.tileheight).ceilSelf();
 
+            // TODO FIXME MONKEY-PATCH AAA!
+            start.x -= 1;
+            start.y -= 2;
+            end.x += 1;
+            end.y += 3;
+
             //ensure we are in the valid tile range
             start.x = start.x < 0 ? 0 : start.x;
             start.y = start.y < 0 ? 0 : start.y;
